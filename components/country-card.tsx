@@ -24,16 +24,14 @@ export default function Country({ country }: CountryProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="w-full h-28 overflow-hidden">
-            <Image
-              className="rounded object-fit"
-              src={country.flags.svg}
-              width={200}
-              height={150}
-              alt={country.name.common}
-              loading="lazy"
-            />
-          </div>
+          <Image
+            className="rounded object-contain aspect-[3/2]"
+            src={country.flags.svg}
+            width={200}
+            height={150}
+            alt={country.name.common}
+            loading="lazy"
+          />
         </CardContent>
         <CardFooter>
           <div className="flex gap-4 items-center">

@@ -2,6 +2,7 @@
 
 import useDebounce from "@/hooks/useDebounce";
 import useFilter from "@/hooks/useFilter";
+import useKeys from "@/hooks/useKeys";
 import { useCountryStore } from "@/store/country";
 import { Loader2, Search } from "lucide-react";
 import { useState } from "react";
@@ -13,6 +14,7 @@ export default function Filter({}: Props) {
   const debouncedInputValue = useDebounce(inputValue, 500);
   const { loading } = useFilter({ inputValue: debouncedInputValue });
   const { filteredData } = useCountryStore();
+  const focusRef = useKeys();
 
   return (
     <div>
@@ -25,6 +27,7 @@ export default function Filter({}: Props) {
               type="text"
               placeholder="Search"
               onChange={(e) => setInputValue(e.target.value)}
+              ref={focusRef}
             />
             <div className="pointer-events-none mx-2 px-3 bg-white text-black py-1 rounded-full md:flex items-cente font-medium sm:block hidden ">
               ctrl + /
