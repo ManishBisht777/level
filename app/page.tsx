@@ -2,23 +2,29 @@
 
 import Country from "@/components/country-card";
 import Filter from "@/components/filter";
+import Hero from "@/components/hero";
+import { Button } from "@/components/ui/button";
 import useCountry from "@/hooks/useCountry";
 import { useCountryStore } from "@/store/country";
+import { BarChart, Github } from "lucide-react";
+
+const apiUrl =
+  "https://restcountries.com/v3.1/name/ee?fields=name,capital,region,subregion,flags,currencies";
 
 export default function Home() {
-  const apiUrl =
-    "https://restcountries.com/v3.1/name/ee?fields=name,capital,region,subregion,flags";
-
+  //inital api call
   const { loading } = useCountry({
     initialApiUrl: apiUrl,
   });
 
+  //get the filtered data from the store
   const { filteredData } = useCountryStore();
 
   return (
     <main className="container flex min-h-screen flex-col items-center py-6">
+      <Hero />
       <Filter />
-      <div className="w-full flex gap-4 flex-wrap justify-center mt-10">
+      <div className="w-full flex gap-5 flex-wrap justify-center mt-10">
         {filteredData.length ? (
           filteredData.map((country: any, index: number) => {
             return <Country key={index} country={country} />;

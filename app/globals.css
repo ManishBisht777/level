@@ -57,3 +57,26 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes gradient {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 100%;
+  animation: gradient 5s linear infinite;
+}
+
+.wave {
+  --mask: radial-gradient(12.91px at 17.85px 50%, #ffffff 99%, #0000 101%) 0
+      calc(50% - 14px) / 100% 28px,
+    radial-gradient(12.91px at -10.85px 50%, #0000 99%, #ffffff 101%) 7px 50%/100%
+      28px repeat-y;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
