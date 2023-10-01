@@ -21,8 +21,10 @@ async function getCountryByRegion(region: string) {
 export default async function SimilarCountries({
   region,
 }: SimilarCountriesProps) {
+  // fetch countires by region server side
   const similarCountries = await getCountryByRegion(region);
 
+  // return not found if no countries found
   if (!similarCountries) notFound();
 
   return (

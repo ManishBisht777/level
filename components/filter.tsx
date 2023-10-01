@@ -57,7 +57,7 @@ export default function Filter({}: Props) {
       <div className="flex justify-center">
         <p className="text-center flex gap-2 items-center mt-4 font-medium  rounded-full py-3 ">
           <Zap className="text-[#f9cb28] w-6 h-6" />
-          Showing {filteredData.length} results
+          Showing {filteredData.length || 0} results
         </p>
       </div>
 

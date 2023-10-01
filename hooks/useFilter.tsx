@@ -12,10 +12,11 @@ export default function useFilter({ inputValue }: FilterProps) {
   const [loading, setLoading] = useState(false);
 
   // Access the setFilteredData function from the country store
-  const { setFilteredData } = useCountryStore();
+  const { setFilteredData, initialData } = useCountryStore();
 
   // Define an effect that runs when inputValue changes to fetch data and set the filtered data
   useEffect(() => {
+    if (!inputValue && initialData) setFilteredData(initialData);
     if (!inputValue) return;
 
     try {
