@@ -8,15 +8,16 @@ interface PageProps {
   };
 }
 
+// * fetch country data based on country id (ccn3)
+
 async function getCountryById(countryId: string) {
   if (!countryId) {
     return;
   }
 
-  // fetch country data based on country id (ccn3)
   const response = await fetch(
     `https://restcountries.com/v3.1/alpha/${countryId}`,
-    { next: { revalidate: 3600 } } // revalidate every hour
+    { next: { revalidate: 3600 } } // * revalidate every hour
   );
   return response.json();
 }
@@ -199,7 +200,7 @@ export default async function page({ params: { countryId } }: PageProps) {
         </div>
       </section>
 
-      {/* similar countries with same subregion */}
+      {/*similar countries with same subregion  */}
       <SimilarCountries region={subregion} />
     </main>
   );

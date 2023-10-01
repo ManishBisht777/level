@@ -13,7 +13,7 @@ async function getCountryByRegion(region: string) {
   // fetch countries in the same region
   const response = await fetch(
     `https://restcountries.com/v3.1/region/${region}`,
-    { next: { revalidate: 3600 } } // revalidate every hour
+    { next: { revalidate: 3600 } } // * revalidate every hour
   );
   return response.json();
 }
@@ -21,10 +21,8 @@ async function getCountryByRegion(region: string) {
 export default async function SimilarCountries({
   region,
 }: SimilarCountriesProps) {
-  // fetch countires by region server side
   const similarCountries = await getCountryByRegion(region);
 
-  // return not found if no countries found
   if (!similarCountries) notFound();
 
   return (

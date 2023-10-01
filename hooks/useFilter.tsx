@@ -3,38 +3,58 @@
 import { useCountryStore } from "@/store/country";
 import { useEffect, useState } from "react";
 
-// Define the props interface for useFilter
 interface FilterProps {
   inputValue: string;
+  region: string;
 }
 
-export default function useFilter({ inputValue }: FilterProps) {
+export default function useFilter({ inputValue, region }: FilterProps) {
   const [loading, setLoading] = useState(false);
 
-  // Access the setFilteredData function from the country store
   const { setFilteredData, initialData } = useCountryStore();
 
-  // Define an effect that runs when inputValue changes to fetch data and set the filtered data
   useEffect(() => {
-    if (!inputValue && initialData) setFilteredData(initialData);
+    // * If there is no input value and there is a region, filter the initialData by region
+
+    if (!inputValue && region && initialData) {
+      const filteredData: any = initialData.filter(
+        (country: any) => country.region === region
+      );
+      setFilteredData(filteredData || []);
+      return;
+    }
+
+    // * when the user clears the input value or on initial page load set the filtered data to the initial data
+    if (!inputValue && initialData) {
+      setFilteredData(initialData);
+      return;
+    }
+
+    // * on initial load when there is no initialData
     if (!inputValue) return;
 
     try {
       (async () => {
         setLoading(true);
 
-        const response = await fetch(
-          `https://restcountries.com/v3.1/name/${inputValue}?fields=name,capital,region,subregion,flags,currency,ccn3`
-        );
+        let apiUrl = `https://restcountries.com/v3.1/name/${inputValue}?fields=name,capital,region,subregion,flags,currency,ccn3`;
+        const response = await fetch(apiUrl);
         const jsonData = await response.json();
-        setFilteredData(jsonData);
+
+        let filteredData;
+        if (region && jsonData.length) {
+          filteredData = jsonData.filter(
+            (country: any) => country.region === region
+          );
+        }
+
+        setFilteredData(filteredData || jsonData);
         setLoading(false);
       })();
     } catch (error) {
       console.log(error);
     }
-  }, [inputValue]); // Re-run the effect whenever inputValue changes
+  }, [inputValue, region]);
 
-  // Return the loading state to indicate whether data is being fetched
   return { loading };
 }

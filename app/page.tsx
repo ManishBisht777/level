@@ -12,12 +12,12 @@ const apiUrl =
   "https://restcountries.com/v3.1/name/ee?fields=name,capital,region,subregion,flags,currencies,ccn3";
 
 export default function Home() {
-  //useCountry hook for fetching initial data
+  // * fetching initial data
   const { loading } = useCountry({
     initialApiUrl: apiUrl,
   });
 
-  //get the filtered data from the store
+  // * get the filtered data from the store
   const { filteredData } = useCountryStore();
 
   return (
@@ -26,7 +26,6 @@ export default function Home() {
       <Filter />
       <div className="w-full flex gap-5 flex-wrap justify-center mt-10">
         {filteredData.length ? (
-          // If there is filtered data, map over it and render each 'Country' component
           filteredData.map((country: any, index: number) => {
             return <Country key={index} country={country} />;
           })

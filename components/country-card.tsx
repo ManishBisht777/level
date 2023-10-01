@@ -45,7 +45,7 @@ export default function Country({ country }: CountryProps) {
         <div className="mt-4">
           <div className="flex flex-col gap-1 items-center text-center">
             <MapPin className="w-5 h-5" />
-            <span>{country.subregion}</span>
+            <span>{country.region}</span>
           </div>
         </div>
       </div>

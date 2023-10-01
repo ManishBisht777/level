@@ -2,18 +2,20 @@
 
 import { useEffect, useRef } from "react";
 
-// return ref to be used for input element
+// * return ref to be used for input element
 
 export default function useKeys() {
-  const inputRef = useRef<HTMLInputElement>(null); // Create a reference to an input element
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Check if the Ctrl key and the "/" key are pressed simultaneously
+  /*
+   * Check if the Ctrl key and the "/" key are pressed simultaneously
+   * Focus on the input element if it exists
+   */
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key === "/") {
         event.preventDefault();
 
-        // Focus on the input element if it exists
         inputRef.current && inputRef.current.focus();
       }
     };
@@ -25,5 +27,5 @@ export default function useKeys() {
     };
   }, []);
 
-  return inputRef; // Return the input element reference
+  return inputRef;
 }
