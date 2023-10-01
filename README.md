@@ -3,8 +3,12 @@
 A Simple NextJs project to implement search and list functionality using a public API [REST Countries](https://restcountries.com/).
 
 ## Screen overview
-  - Listing and search page
-  - Country details page
+  - ### Listing and search page
+  ![image](https://github.com/ManishBisht777/level/assets/89926834/9348f1e1-9f50-4e12-b95c-5a654066f307)
+
+  - ### Country details page
+    ![image](https://github.com/ManishBisht777/level/assets/89926834/63bbde0e-d488-4683-96d5-f0b2ca0c4910)
+
 
 [Demo](https://country-explorer-rho.vercel.app/)
 
@@ -86,7 +90,7 @@ git push origin feature-or-bug-fix
 6. Open a pull request.
 Wait for maintainers to review your Pull Request and address any feedback.
 
-Please ensure that your code follows our coding standards, conventions. We appreciate your contributions!
+Please ensure that your code follows our coding standards and conventions. We appreciate your contributions!
 
 If you find any issues or want to suggest improvements, please open an issue.
 
@@ -96,4 +100,4 @@ If you find any issues or want to suggest improvements, please open an issue.
 - Pagination for listing data in parts
 - More filters
 - Design Improvements
-- Initial load time
+
