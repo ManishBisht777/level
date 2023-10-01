@@ -5,7 +5,7 @@ type Props = {};
 
 export default function Hero({}: Props) {
   return (
-    <>
+    <div className="flex justify-center flex-col container text-center items-center">
       <div className="md:my-7 my-3 flex flex-wrap text-center items-center gap-2 justify-center md:text-xl text-sm">
         <BarChart />
         <span>levels.fyi 🎉 assignment by</span>
@@ -26,7 +26,7 @@ export default function Hero({}: Props) {
         </span>
       </div>
       <p className="max-w-3xl md:text-xl text-sm text-slate-300 text-center my-7">
-        Vercel's frontend cloud gives developers the frameworks, workflows, and
+        Vercel frontend cloud gives developers the frameworks, workflows, and
         infrastructure to build a faster, more personalized Web.
       </p>
       <div className="flex flex-wrap gap-4 justify-center">
@@ -43,6 +43,6 @@ export default function Hero({}: Props) {
           </div>
         </button>
       </div>
-    </>
+    </div>
   );
 }

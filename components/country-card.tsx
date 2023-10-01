@@ -1,4 +1,4 @@
-import { Coins, Eye, MapPin } from "lucide-react";
+import { Eye, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,11 +7,12 @@ interface CountryProps {
 }
 
 export default function Country({ country }: CountryProps) {
+  console.log(country);
   return (
     <div className="flex md:flex-row flex-row-reverse flex-wrap rounded-lg border overflow-hidden relative wave group transition ease-in-out">
       <div className="group-hover:flex transition ease-in-out hidden absolute inset-0 bg-black/40 backdrop-blur z-10 text-white p-[1px] rounded-md justify-center items-center gap-1 py-3">
         <Link
-          href="/"
+          href={`/country/${country.ccn3}`}
           className="flex gap-1 items-center bg-black px-6 py-3 rounded-lg cursor-pointer"
         >
           <Eye className="w-4 h-4 " />
@@ -50,35 +51,4 @@ export default function Country({ country }: CountryProps) {
       </div>
     </div>
   );
-}
-
-//  <div className="flex">
-{
-  /* <div className="w-40 h-24 rounded-sm overflow-hidden relative">
-<Image
-  className="object-cover"
-  src={country.flags.svg}
-  alt={country.name.common}
-  fill
-  loading="lazy"
-/>
-</div>
-
-<div className="bg-white">
-<div>
-  <p className="truncate">{country.name.common}</p>
-  <p className="truncate">
-    {country.region} {" - "} {country.subregion}
-  </p>
-</div>
-<div>
-  <div className="flex flex-col gap-4 items-center">
-    <span className="bg-violet-950 py-2 px-4 rounded-full">
-      Capital
-    </span>
-    <span className="text-sm">{country.capital}</span>
-  </div>
-</div>
-</div>
-</div> */
 }

@@ -3,13 +3,11 @@
 import Country from "@/components/country-card";
 import Filter from "@/components/filter";
 import Hero from "@/components/hero";
-import { Button } from "@/components/ui/button";
 import useCountry from "@/hooks/useCountry";
 import { useCountryStore } from "@/store/country";
-import { BarChart, Github } from "lucide-react";
 
 const apiUrl =
-  "https://restcountries.com/v3.1/name/ee?fields=name,capital,region,subregion,flags,currencies";
+  "https://restcountries.com/v3.1/name/ee?fields=name,capital,region,subregion,flags,currencies,ccn3";
 
 export default function Home() {
   //inital api call
