@@ -1,3 +1,4 @@
+import SimilarCountries from "@/components/similar-countries";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -33,6 +34,7 @@ export default async function page({ params: { countryId } }: PageProps) {
     languages,
     timezones,
     area,
+    region,
     population,
   } = countryData[0];
 
@@ -191,6 +193,7 @@ export default async function page({ params: { countryId } }: PageProps) {
           </div>
         </div>
       </section>
+      <SimilarCountries region={subregion} />
     </main>
   );
 }

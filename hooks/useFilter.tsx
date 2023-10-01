@@ -18,7 +18,7 @@ export default function useFilter({ inputValue }: FilterProps) {
       (async () => {
         setLoading(true);
         const response = await fetch(
-          `https://restcountries.com/v3.1/name/${inputValue}?fields=name,capital,region,subregion,flags,currency`
+          `https://restcountries.com/v3.1/name/${inputValue}?fields=name,capital,region,subregion,flags,currency,ccn3`
         );
         const jsonData = await response.json();
         setFilteredData(jsonData);
