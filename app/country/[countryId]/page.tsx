@@ -85,6 +85,7 @@ export default async function page({ params: { countryId } }: PageProps) {
                 width={100}
                 height={100}
                 alt="capital"
+                loading="lazy"
                 className="self-end"
               />
             </div>
@@ -104,6 +105,7 @@ export default async function page({ params: { countryId } }: PageProps) {
                 src={flags?.svg}
                 width={100}
                 height={100}
+                loading="lazy"
                 alt="flags"
               />
             </div>
@@ -122,6 +124,7 @@ export default async function page({ params: { countryId } }: PageProps) {
                 className="self-end md:w-48 md:h-48 w-24 h-24"
                 src="/name.svg"
                 width={200}
+                loading="lazy"
                 height={200}
                 alt="hashtag"
               />
@@ -143,6 +146,7 @@ export default async function page({ params: { countryId } }: PageProps) {
                 className="self-end md:w-36 md:h-36 w-24 h-24"
                 src="/currency.svg"
                 width={150}
+                loading="lazy"
                 height={150}
                 alt="currency"
               />
@@ -164,6 +168,7 @@ export default async function page({ params: { countryId } }: PageProps) {
                 className="self-end md:w-36 md:h-36 w-24 h-24"
                 src="/lang.svg"
                 width={150}
+                loading="lazy"
                 height={150}
                 alt="language"
               />
@@ -184,6 +189,7 @@ export default async function page({ params: { countryId } }: PageProps) {
               <Image
                 className="self-end"
                 src="/time.svg"
+                loading="lazy"
                 width={100}
                 height={100}
                 alt="timezone"
