@@ -6,8 +6,8 @@ interface CountryProps {
   country: any;
 }
 
+// renders the country information
 export default function Country({ country }: CountryProps) {
-  console.log(country);
   return (
     <div className="flex md:flex-row flex-row-reverse flex-wrap rounded-lg border overflow-hidden relative wave group transition ease-in-out">
       <div className="group-hover:flex transition ease-in-out hidden absolute inset-0 bg-black/40 backdrop-blur z-10 text-white p-[1px] rounded-md justify-center items-center gap-1 py-3">

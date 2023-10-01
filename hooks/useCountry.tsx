@@ -6,12 +6,15 @@ interface useCountryProps {
 }
 
 export default function useCountry({ initialApiUrl }: useCountryProps) {
+  // functions from the useCountryStore to set the initial data and filtered data
   const { setInitialData, setFilteredData } = useCountryStore();
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [apiUrl, _] = useState(initialApiUrl);
 
   useEffect(() => {
+    // fetch data from the apiUrl and set the initial data and filtered data
     const fetchData = async () => {
       try {
         const response = await fetch(apiUrl);
@@ -25,13 +28,16 @@ export default function useCountry({ initialApiUrl }: useCountryProps) {
         setInitialData(jsonData);
         setFilteredData(jsonData);
       } catch (err: any) {
+        // Handle any errors that occur during the fetch
         setError(err);
         setLoading(false);
       }
     };
 
+    // Call the fetchData function when the component mounts
     fetchData();
   }, []);
 
+  // Return loading and error states
   return { loading, error };
 }

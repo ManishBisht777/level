@@ -34,7 +34,6 @@ export default async function page({ params: { countryId } }: PageProps) {
     languages,
     timezones,
     area,
-    region,
     population,
   } = countryData[0];
 
@@ -193,6 +192,8 @@ export default async function page({ params: { countryId } }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* similar countries with same subregion */}
       <SimilarCountries region={subregion} />
     </main>
   );

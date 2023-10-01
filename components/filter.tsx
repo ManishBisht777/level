@@ -11,10 +11,17 @@ type Props = {};
 
 export default function Filter({}: Props) {
   const [inputValue, setInputValue] = useState("");
+
+  // debouce the input value to avoid unnecessary api calls
   const debouncedInputValue = useDebounce(inputValue, 500);
+
+  // useFilter hook to filter the data based on the debounceInput value
   const { loading } = useFilter({ inputValue: debouncedInputValue });
+
   const { filteredData } = useCountryStore();
-  const focusRef = useKeys();
+
+  // useKeys hook to focus on the input element when the Ctrl key and the "/" key are pressed simultaneously
+  const focusRef = useKeys(); // get ref to be used in input element
 
   return (
     <div className="mt-16">
@@ -54,6 +61,7 @@ export default function Filter({}: Props) {
         </p>
       </div>
 
+      {/*  Show loader if loading is true */}
       {loading && (
         <div className="text-center font-bold mt-6 md:text-3xl text-xl flex justify-center text-primary/80">
           <Loader2 className="w-4 h-4 animate-spin" />

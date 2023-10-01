@@ -1,5 +1,4 @@
 import { BarChart, Github } from "lucide-react";
-import React from "react";
 
 type Props = {};
 
@@ -26,8 +25,7 @@ export default function Hero({}: Props) {
         </span>
       </div>
       <p className="max-w-3xl md:text-xl text-sm text-slate-300 text-center my-7">
-        Vercel frontend cloud gives developers the frameworks, workflows, and
-        infrastructure to build a faster, more personalized Web.
+        A simple Nextjs13 Project to search for country and view its details
       </p>
       <div className="flex flex-wrap gap-4 justify-center">
         <button className="rounded-md p-[1px] bg-white text-black">
@@ -37,10 +35,13 @@ export default function Hero({}: Props) {
           </div>
         </button>
         <button className=" text-white  rounded-md bg-gradient-to-br from-[#ba83f1c8] to-[#fb47a1ca] p-[1px]">
-          <div className="bg-black flex items-center rounded-md gap-1 px-10 py-2">
+          <a
+            href="https://github.com/ManishBisht777/level"
+            className="bg-black flex items-center rounded-md gap-1 px-10 py-2"
+          >
             <Github className="w-6 h-6" />
             Github
-          </div>
+          </a>
         </button>
       </div>
     </div>
